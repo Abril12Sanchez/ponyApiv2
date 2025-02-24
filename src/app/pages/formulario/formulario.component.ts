@@ -42,5 +42,4 @@ export class FormularioComponent {
       this.resultado = '❌ Lo siento, no pude adivinar el personaje.';
     }
   }
-
 }
