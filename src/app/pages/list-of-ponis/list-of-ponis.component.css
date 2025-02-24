@@ -1,0 +1,41 @@
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    height: 500px;
+    object-fit: cover;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* para reflejo en card */
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+    /* Reflejo rosa */
+    transition: transform 0.3s, box-shadow 0.3s;
+    /* Animación suave */
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Efecto de agrandado al pasar el mouse */
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.9);
+    /* Brillo más fuerte al hacer hover */
+}
+
+.si {
+    font-weight: bold;
+}

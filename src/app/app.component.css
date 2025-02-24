@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../../public/assets/fonts/HowdyLove.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.titulo {
+    font-family: 'MiFuente', sans-serif;
+    font-size: 54px;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'MiFuente', sans-serif;
+}

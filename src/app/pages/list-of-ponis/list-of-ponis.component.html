@@ -1,0 +1,16 @@
+<h3 class="si">🦄Lista de Personajes</h3>
+
+<div class="row">
+  @for (post of data; track post.id) {
+  <div class="col-md-4 my-3">
+    <div class="card">
+      <img [src]="post.image[0]" class="card-img-top" alt="{{ post.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.name }} ({{ post.alias }})</h5>
+        <p class="card-text"><strong>Sexo:</strong> {{ post.sex }}</p>
+        <p class="card-text"><strong>Residencia:</strong> {{ post.residence }}</p>
+      </div>
+    </div>
+  </div>
+  }
+</div>

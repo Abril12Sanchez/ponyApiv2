@@ -1,0 +1,56 @@
+.ponis {
+    width: 1200px;
+    /* Ancho */
+    height: 800px;
+    /* Alto */
+    display: block;
+    /* Hace que la imagen respete 'margin auto' */
+    margin: 0 auto;
+    /* Centrado horizontal */
+    object-fit: cover;
+    /* Ajusta la imagen sin deformarla */
+}
+
+
+.titulo {
+    font-family: 'MiFuente', sans-serif;
+    font-size: 54px;
+    font-weight: bold;
+    color: #db19b1;
+    text-align: center;
+}
+
+
+/* tabla de contenido */
+.custom-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: linear-gradient(to right, #ffb6c1, #ff69b4, #ff1493);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);
+}
+
+.custom-table td {
+    padding: 20px;
+    border: 2px solid white;
+}
+
+.custom-table p,
+.custom-table ul {
+    margin: 0;
+    padding: 10px;
+}
+
+.custom-table ul {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-table li {
+    padding: 5px 0;
+}

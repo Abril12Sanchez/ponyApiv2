@@ -1,0 +1,18 @@
+.custom-navbar {
+    background: linear-gradient(to right, #ffb6c1, #ff69b4, #ff69b4, #ff1493, #ff1493);
+    padding: 10px;
+}
+
+.navbar-logo {
+    height: 40px;
+    /* Ajusta el tamaño de la imagen según necesites */
+}
+
+.navbar-nav .nav-link {
+    color: white !important;
+    /* Letras blancas */
+    font-size: 18px;
+    /* Letras más grandes */
+    font-weight: bold;
+    /* Letras en negrita */
+}
