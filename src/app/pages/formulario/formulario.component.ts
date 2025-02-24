@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
-  template: `<h2>🌈 ¡Descubre qué Pony de Equestria eres! 🦄</h2>`,
-  styleUrls: ['./formulario.component.css']
+  templateUrl: './formulario.component.html',
 })
 export class FormularioComponent {
-  formulario: FormGroup;
+  formulario: { [key: string]: string } = {
+    colorFavorito: '',
+    fruta: '',
+    habilidad: ''
+  };
+  resultado: string = '';
+  mostrarResultado: boolean = false;
 
   personajes = [
     { nombre: 'Twilight Sparkle', colorFavorito: 'Morado', fruta: 'Mandarina', habilidad: 'Magia' },
@@ -18,28 +22,28 @@ export class FormularioComponent {
     { nombre: 'Applejack', colorFavorito: 'Naranja', fruta: 'Manzana', habilidad: 'Cultivo' },
   ];
 
-  resultado: string | null = null;
-
-  constructor(private fb: FormBuilder) {
-    this.formulario = this.fb.group({
-      colorFavorito: ['', Validators.required],
-      fruta: ['', Validators.required],
-      habilidad: ['', Validators.required]
-    });
-  }
-
   adivinarPersonaje() {
-    const respuestas = this.formulario.value;
-    const personaje = this.personajes.find(p => 
-      p.colorFavorito.toLowerCase() === respuestas.colorFavorito.toLowerCase() && 
-      p.fruta.toLowerCase() === respuestas.fruta.toLowerCase() && 
-      p.habilidad.toLowerCase() === respuestas.habilidad.toLowerCase()
+    // Filtramos los personajes que coinciden con al menos una respuesta.
+    const posiblesPersonajes = this.personajes.filter(p =>
+      p.colorFavorito.toLowerCase() === this.formulario['colorFavorito'].toLowerCase() ||
+      p.fruta.toLowerCase() === this.formulario['fruta'].toLowerCase() ||
+      p.habilidad.toLowerCase() === this.formulario['habilidad'].toLowerCase()
     );
 
-    if (personaje) {
-      this.resultado = `🎠 ¡Eres ${personaje.nombre}! 🎉`;
+    if (posiblesPersonajes.length > 0) {
+      // Seleccionamos un personaje aleatorio de los posibles personajes.
+      const personajeAleatorio = posiblesPersonajes[Math.floor(Math.random() * posiblesPersonajes.length)];
+      this.resultado = `🎠 ¡Eres ${personajeAleatorio.nombre}! 🎉`;
     } else {
       this.resultado = '❌ Lo siento, no pude adivinar el personaje.';
+    }
+    this.mostrarResultado = true;
+  }
+
+  onInputChange(event: Event, campo: string) {
+    const input = <HTMLInputElement>event.target;
+    if (input) {
+      this.formulario[campo] = input.value;
     }
   }
 }

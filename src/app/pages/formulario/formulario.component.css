@@ -1,46 +1,94 @@
-/* Fondo inspirado en My Little Pony */
 body {
-  background: linear-gradient(to bottom, #ffccff, #ccddff);
-  font-family: 'Patrick Hand', cursive;
-  color: #5a009d;
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #fef3f7; 
+  color: #333;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
+  width: 80%;
   max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.8);
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
   border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-input {
-  width: 80%;
-  padding: 10px;
+.title {
+  font-size: 2rem;
+  color: #ff7ee5; 
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.question-box {
+  background-color: #f9d1ff; 
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-label {
+  font-size: 1.5rem;
+  color: #ff4dd2; 
+  margin-bottom: 10px;
+}
+
+.options label {
+  font-size: 1.2rem;
+  color: #7030a0; /* Morado */
   margin: 10px 0;
-  border-radius: 10px;
-  border: 2px solid #ff66b2;
+  display: block;
 }
 
 button {
-  padding: 12px 25px;
-  background: linear-gradient(to right, #ff66b2, #ffccff);
+  background-color: #ff4dd2;
   color: white;
-  font-weight: bold;
+  padding: 12px 25px;
   border: none;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s;
+  font-size: 1.3rem;
+  width: 100%;
+  transition: all 0.3s;
 }
 
 button:hover {
-  transform: scale(1.1);
-  background: linear-gradient(to right, #ffccff, #ff66b2);
+  background-color: #ff5dc5; 
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #ff4dd2;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
 }
 
 h3 {
-  color: #ff66b2;
-  font-size: 1.5em;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  color: #ff4dd2;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.question-box:hover {
+  background-color: #ffbee5;
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
 }

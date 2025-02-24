@@ -1,36 +1,77 @@
 <div class="container">
-  <h2>🌈 ¡Descubre qué Pony de Equestria eres! 🦄</h2>
+  <h2 class="title">🌈 ¡Descubre qué Pony de Equestria eres! 🦄</h2>
   
-  <form [formGroup]="formulario" (ngSubmit)="adivinarPersonaje()">
+  <form (submit)="adivinarPersonaje()">
     
-    <div>
-      <label for="colorFavorito">🎨 ¿Cuál es tu color favorito?</label>
-      <input id="colorFavorito" formControlName="colorFavorito" type="text" />
-      <small class="error" [hidden]="!(formulario.get('colorFavorito')?.invalid && formulario.get('colorFavorito')?.touched)">
+    <div class="question-box">
+      <label for="colorFavorito" class="question-label">🎨 ¿Cuál es tu color favorito?</label>
+      <div class="options">
+        <label>
+          <input type="radio" name="colorFavorito" value="Morado" (change)="onInputChange($event, 'colorFavorito')" /> Morado
+        </label>
+        <label>
+          <input type="radio" name="colorFavorito" value="Amarillo" (change)="onInputChange($event, 'colorFavorito')" /> Amarillo
+        </label>
+        <label>
+          <input type="radio" name="colorFavorito" value="Rosita" (change)="onInputChange($event, 'colorFavorito')" /> Rosita
+        </label>
+        <label>
+          <input type="radio" name="colorFavorito" value="Rojo" (change)="onInputChange($event, 'colorFavorito')" /> Rojo
+        </label>
+      </div>
+      <small class="error" [style.display]="!formulario['colorFavorito'] ? 'block' : 'none'">
         🌟 Este campo es obligatorio.
       </small>
     </div>
 
-    <div>
-      <label for="fruta">🍎 ¿Qué fruta te gusta más?</label>
-      <input id="fruta" formControlName="fruta" type="text" />
-      <small class="error" [hidden]="!(formulario.get('fruta')?.invalid && formulario.get('fruta')?.touched)">
+    <div class="question-box">
+      <label for="fruta" class="question-label">🍎 ¿Qué fruta te gusta más?</label>
+      <div class="options">
+        <label>
+          <input type="radio" name="fruta" value="Mandarina" (change)="onInputChange($event, 'fruta')" /> Mandarina
+        </label>
+        <label>
+          <input type="radio" name="fruta" value="Pera" (change)="onInputChange($event, 'fruta')" /> Pera
+        </label>
+        <label>
+          <input type="radio" name="fruta" value="Manzana" (change)="onInputChange($event, 'fruta')" /> Manzana
+        </label>
+        <label>
+          <input type="radio" name="fruta" value="Apio" (change)="onInputChange($event, 'fruta')" /> Apio
+        </label>
+      </div>
+      <small class="error" [style.display]="!formulario['fruta'] ? 'block' : 'none'">
         🌟 Este campo es obligatorio.
       </small>
     </div>
 
-    <div>
-      <label for="habilidad">✨ ¿Cómo te describes según las opciones?</label>
-      <input id="habilidad" formControlName="habilidad" type="text" />
-      <small class="error" [hidden]="!(formulario.get('habilidad')?.invalid && formulario.get('habilidad')?.touched)">
+    <div class="question-box">
+      <label for="habilidad" class="question-label">✨ ¿Cómo te describes según las opciones?</label>
+      <div class="options">
+        <label>
+          <input type="radio" name="habilidad" value="Magia" (change)="onInputChange($event, 'habilidad')" /> Magia
+        </label>
+        <label>
+          <input type="radio" name="habilidad" value="Dominación" (change)="onInputChange($event, 'habilidad')" /> Dominación
+        </label>
+        <label>
+          <input type="radio" name="habilidad" value="Diversión" (change)="onInputChange($event, 'habilidad')" /> Diversión
+        </label>
+        <label>
+          <input type="radio" name="habilidad" value="Velocidad" (change)="onInputChange($event, 'habilidad')" /> Velocidad
+        </label>
+      </div>
+      <small class="error" [style.display]="!formulario['habilidad'] ? 'block' : 'none'">
         🌟 Este campo es obligatorio.
       </small>
     </div>
 
-    <button type="submit" [disabled]="formulario.invalid">🌟 Adivinar 🦄</button>
+    <button type="submit" [disabled]="!formulario['colorFavorito'] || !formulario['fruta'] || !formulario['habilidad']">
+      🌟 Adivinar 🦄
+    </button>
   </form>
 
-  <div [hidden]="!mostrarResultado">
+  <div [style.display]="mostrarResultado ? 'block' : 'none'">
     <h3>🎉 {{ resultado }} 🎠</h3>
   </div>
 </div>

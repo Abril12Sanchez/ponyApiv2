@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormularioComponent } from './formulario.component';  // Ajusta la ruta
 
+
 describe('FormularioComponent', () => {
   let component: FormularioComponent;
   let fixture: ComponentFixture<FormularioComponent>;
